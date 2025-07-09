@@ -5,23 +5,21 @@ import compress from "astro-compress";
 import sitemap from "@astrojs/sitemap";
 import robots from "astro-robots";
 import unfonts from "unplugin-fonts/astro"; // optional
-import netlify from "@astrojs/netlify"; // optional
 
 import sanity from "@sanity/astro";
 
 export default defineConfig({
-    site: "https://example.com", // ← update later
-    output: "static",
-    integrations: [
-      vue(),
-      tailwind(),
-      compress({ html: true, img: true }),
-      sitemap(),
-      robots(),
-      unfonts({
-          google: { families: ["Inter:400,700"] }, // sample config
-      }),
-      sanity(),
-    ],
-    adapter: netlify(),
+	site: "https://example.com", // ← update later
+	output: "static",
+	integrations: [
+		vue(),
+		tailwind(),
+		compress({ html: true, img: true }),
+		sitemap(),
+		robots(),
+		unfonts({
+			google: { families: ["Inter:400,700"] }, // sample config
+		}),
+		sanity(),
+	],
 });
