@@ -1,0 +1,17 @@
+---
+import { sanityClient } from "sanity:client";
+import groq from "groq";
+
+interface TestItem {
+	title: string;
+}
+
+const items: TestItem[] = await sanityClient.fetch(
+	groq`*[_type == "test"]{title}`
+);
+---
+
+<h1>Sanity "test" Documents</h1>
+<ul>
+	{items.map((item: TestItem) => <li>{item.title}</li>)}
+</ul>
